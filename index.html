@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Search</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container mb-6">
+    <section id="hero" class="hero is-fullheight is-bold mb-4">
+      <div class="hero-body">
+        <div id="searchDiv" class="container mt-6 pt-6">
+          <div id="searchArea" class="field has-addons mt-6 pt-6">
+              <div class="control is-expanded">
+                <input id="stateSearched" class="input is-medium is-danger" type="text" placeholder="Enter 'City, State'">
+              </div>
+              <div class="control">
+                <a id="searchBtn" class="button is-medium is-danger">
+                  Search
+                </a>
+              </div>
+          </div>
+
+          <p id="description" class="mt-2 subtitle">
+            Find breweries for your desired City, State!
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
