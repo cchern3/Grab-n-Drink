@@ -1,0 +1,185 @@
+var containerforbrew = document.querySelector("#brewery-container");
+var searchforbrew = document.querySelector("#city-search-term");
+var formforbrew = document.querySelector("#brew-form");
+var textforcity = document.querySelector("#city");
+var historyofsearches =document.querySelector("#searchHistory")
+
+// Get the modal
+var modal = document.getElementById('id01');
+modal.style.display= "block"
+
+//If the user clicks Not 21, take them to responsibility.org
+ let button = document.querySelector('.deletebtn');
+ button.addEventListener("click", () => {
+     location.href="https://www.responsibility.org/";
+ })
+ 
+var cities = []
+
+var submittingtheform = function (event) {
+    event.preventDefault();
+
+
+// get value from input element
+
+    var discoverthecity = textforcity.value.trim();
+
+    if (discoverthecity) {
+        acquirecity(discoverthecity);
+        textforcity.value = "";
+    } else {
+        alert("Please enter a valid city");
+    }
+};
+
+var acquirecity = function (city) {
+    // format the api url
+    var brewapi = "https://api.openbrewerydb.org/breweries?by_city=" + city;
+
+    if (city !== '') {
+        fetch(brewapi).then(function(response) {
+            response.json().then(function(data) {
+                allbrews(data, city);
+            });
+
+        });
+    }
+    // make a request to the url
+   
+};
+
+formforbrew.addEventListener("submit", submittingtheform);
+
+var allbrews = function (data, elements) {
+    console.log(data);
+    apiData = data;
+    console.log(elements)
+    // clear old content
+    containerforbrew.textContent = "";
+    searchforbrew.textContent = "Breweries near: " + elements.charAt(0).toUpperCase() + elements.slice(1);
+    if (cities.indexOf(elements)=== -1) {
+        cities.push(elements)
+    }
+
+
+
+    localStorage.setItem("cities", JSON.stringify(cities))
+    localStorage.getItem("cities")  
+    console.log(cities)
+    previouscitysearch()
+    // loop over data
+    for (var i = 0; i < data.length; i++) {
+        // format data
+        var { name, brewery_type, street, city, state, phone, postal_code, website_url } = data[i];
+
+    // Phone number formating, use 'j' because 'i' was already used above
+    const arrayforphone = phone.split('');
+
+    var phonenumberformat = [];
+    for(var j = 0; j < arrayforphone.length; j++){
+        // if it's the 2nd or 5th position in an array, push '-' afterwards
+      if (j == 2 || j === 5 ){
+          phonenumberformat.push(arrayforphone[j])
+        phonenumberformat.push('-')
+        //otherwise push regular numbers in array
+      } else {
+        phonenumberformat.push(arrayforphone[j])
+      }
+    }
+
+    phone = phonenumberformat.join('');    
+        let details = `
+    <div class="card column is-one-quarter has-background-warning mt-2">
+        <div class="card-content">
+        <p class="title is-4">${name}</p>
+            <div class="content">
+                <h6>Brewery Type: ${brewery_type}</h6>
+                <h6>${street}</h6>
+                <h6>${city}, ${state}</h6>
+                <h6>Postal Code: ${postal_code}</h6>
+                <h6>Phone: ${phone}</h6>
+                <h6>Website: ${website_url}</h6>
+                
+            </div>
+        </div>
+    </div>
+    `
+
+        document.getElementById('brewery-container').innerHTML += details;
+    }
+};
+
+console.log(cities)
+function historylist(entry) {
+    var node = document.createElement("option");
+    var textnode = document.createTextNode(entry);
+    if (entry !== "Select") {
+        node.setAttribute("value", entry)
+    } else {
+        node.setAttribute("value", '')
+    }
+    //create on option element
+    node.appendChild(textnode)
+    historyofsearches.appendChild(node)
+    //append element to search history
+    
+}
+
+function previouscitysearch () {
+   
+
+  let citiesList = JSON.parse(localStorage.getItem("cities"))
+  
+  if (citiesList) {
+      while (historyofsearches.firstChild) {
+          historyofsearches.removeChild(historyofsearches.firstChild);
+      }
+      cities=citiesList
+      historylist("Select")
+  for (var i = 0; i < cities.length; i++) {
+      historylist(cities[i]) 
+      
+  }}
+  
+  }
+  
+  previouscitysearch()
+
+  /*function displayWeather(cityName) {
+    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=9dd332c2cdf5ad3eee158912aa75b747&units=imperial`;
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (currentData) {
+            console.log(currentData);
+            var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=9dd332c2cdf5ad3eee158912aa75b747&units=imperial`;
+            fetch(oneCallUrl)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (fiveDayData) {
+                    if (searchHistory.includes(currentData.name) === false) {
+                        searchHistory.push(currentData.name);
+                        localStorage.setItem("city", JSON.stringify(searchHistory));
+                    }
+                    displayCity();
+                    console.log(fiveDayData);
+                    presentDayWeather.innerHTML = `<ul>
+        <li class="title">${currentData.name} /<span> ${moment(
+                        currentData.dt,
+                        "X"
+                    ).format(" MM/DD/YYYY")} </span></li>
+        <li><img src ="http://openweathermap.org/img/wn/${currentData.weather[0].icon
+                        }@2x.png" /></li>
+        <li>Temp: ${currentData.main.temp}</li>
+        <li>Wind: ${currentData.wind.speed}</li>
+        <li>Humidity: ${currentData.main.humidity}</li>
+        <li>UV: <span style="background-color: green; color: white;"> ${fiveDayData.current.uvi
+                        }</span></li>
+    </ul>
+        `;
+          });
+        });
+}
+        */

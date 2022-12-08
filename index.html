@@ -8,20 +8,43 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
+  <body>
+
+
+<button class= "button button is-warning m-5" onclick="document.getElementById('id01').style.display='block'">Age Confirmation</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>BrewberEats</h1>
+      <p class="modal-p">Please confirm your age in order to discover brews and food near you</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">I'm at least 21 years old</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">I'm under 21 years old</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+    <header>
+      <h1 class= "is-size-1 has-text-weight-bold has-text-centered">Grab n' Drink!</h1>
+    </header>
     <!-- Brewery section -->
     <div class="columns">
       <div class="column">
       <section id="breweries" class="m-5">
-          <h2 class="is-size-2 has-text-weight-semibold">Breweries Near You</h2>
-          <div m-3>
+          <h2 class="is-size-2 has-text-weight-semibold has-text-centered">Breweries Near You</h2>
+          <div class = "m-3 has-text-centered">
               <p class="is-size-3">Search for a City:</h3>
               <form id="brew-form">
-                  <label class="form-label" for="city"></label>
-                  <input name="city" id="city" type="text" autofocus="true" /><br>
-                  <button type="submit" class="button is-info m-3">Search</button>
+                  <label class="form-label " for="city"></label>
+                  <input name="city" id="city" type="text" autofocus="true" placeholder="''Atlanta''"/><br>
+                  <button type="submit" class="button is-info m-3 ">Search</button>
   
                   <div class="select is-info m-3">
-                      <select id="searchHistory" onchange="getCityBreweries(this.value)">
+                      <select id="searchHistory" onchange="acquirecity(this.value)">
                         <option class="option" value="entry" selected disabled>Select</option>
                       </select>
                     </div>
@@ -29,7 +52,7 @@
           </div>
         
               <h2 class="m-3 is-size-2"><span id="city-search-term"></span></h2>
-              <div class="columns is-multiline" id="brewery-container"> </div>
+              <div class="columns is-multiline is-centered" id="brewery-container"> </div>
           </div>
   
       </section>
