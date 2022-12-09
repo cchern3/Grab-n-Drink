@@ -92,7 +92,7 @@ hr {
 }
 
 /* Mobile up to 768px*/
-@include mobile {
+    @include mobile {
     li a {
       display: block;}
     .cancelbtn, .deletebtn {

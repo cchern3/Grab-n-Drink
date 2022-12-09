@@ -13,7 +13,7 @@ modal.style.display= "block"
  button.addEventListener("click", () => {
      location.href="https://www.responsibility.org/";
  })
- 
+
 var cities = []
 
 var submittingtheform = function (event) {
@@ -144,42 +144,3 @@ function previouscitysearch () {
   }
   
   previouscitysearch()
-
-  /*function displayWeather(cityName) {
-    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=9dd332c2cdf5ad3eee158912aa75b747&units=imperial`;
-    fetch(url)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (currentData) {
-            console.log(currentData);
-            var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=9dd332c2cdf5ad3eee158912aa75b747&units=imperial`;
-            fetch(oneCallUrl)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (fiveDayData) {
-                    if (searchHistory.includes(currentData.name) === false) {
-                        searchHistory.push(currentData.name);
-                        localStorage.setItem("city", JSON.stringify(searchHistory));
-                    }
-                    displayCity();
-                    console.log(fiveDayData);
-                    presentDayWeather.innerHTML = `<ul>
-        <li class="title">${currentData.name} /<span> ${moment(
-                        currentData.dt,
-                        "X"
-                    ).format(" MM/DD/YYYY")} </span></li>
-        <li><img src ="http://openweathermap.org/img/wn/${currentData.weather[0].icon
-                        }@2x.png" /></li>
-        <li>Temp: ${currentData.main.temp}</li>
-        <li>Wind: ${currentData.wind.speed}</li>
-        <li>Humidity: ${currentData.main.humidity}</li>
-        <li>UV: <span style="background-color: green; color: white;"> ${fiveDayData.current.uvi
-                        }</span></li>
-    </ul>
-        `;
-          });
-        });
-}
-        */
