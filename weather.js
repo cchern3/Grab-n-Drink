@@ -57,7 +57,7 @@ function showcasecity() {
     for (var i = 0; i < searchesprev.length; i++) {
         cityList =
             cityList +
-            `<button class="btn btn-secondary my-1" type="submit">${searchesprev[i]}</button>`;
+            `<button class="button is-normal is-responsive" type="submit">${searchesprev[i]}</button>`;
     }
     prevcities.innerHTML = cityList;
     var searching = document.querySelectorAll(".my-1");

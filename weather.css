@@ -31,7 +31,8 @@
     padding: 10px;
     margin-bottom: 10px;
   }
-  
+ 
+
   /* responsiveness for large and small screens */
   @media screen and (max-width: 1180px) {
     .firstfive {
