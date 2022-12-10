@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-  <body>
+  <body background="./background-image.jpg">
 
 
 <button class= "button button is-warning m-5" onclick="document.getElementById('id01').style.display='block'">Age Confirmation</button>
@@ -18,8 +18,7 @@
   <form class="modal-content" action="/action_page.php">
     <div class="container">
       <h1>Grab n' Drink</h1>
-      <p class="modal-p">Please confirm your age in order to discover brews and food near you</p>
-    
+      <p class="modal-p">Confirm your age to find the best breweries near you!</p>
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">I'm at least 21 years old</button>
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">I'm under 21 years old</button>
@@ -28,13 +27,15 @@
   </form>
 </div>
 
-    <header>
-      <h1 class= "is-size-1 has-text-weight-bold has-text-centered">Grab n' Drink!</h1>
+    <header class= "has-text-weight-bold has-text-centered">
+      <h1 class="is-size-1 has-text-weight-bold">Grab n' Drink!</h1>
+      <a class="weatherclass has-text-warning is-size-3 is-hovered" href="weather.html">Check the Weather -Click Here!- </a>
     </header>
     <!-- Brewery section -->
     <div class="columns">
       <div class="column">
       <section id="breweries" class="m-5">
+        <div class="box-search">
           <h2 class="is-size-2 has-text-weight-semibold has-text-centered">Breweries Near You</h2>
           <div class = "m-3 has-text-centered">
               <p class="is-size-3">Search for a City:</h3>
@@ -49,14 +50,13 @@
                       </select>
                     </div>
               </form>
+            </div>
           </div>
         
               <h2 class="m-3 is-size-2"><span id="city-search-term"></span></h2>
               <div class="columns is-multiline is-centered" id="brewery-container"> </div>
           </div>
   
-      </section>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script src="./script.js"></script>

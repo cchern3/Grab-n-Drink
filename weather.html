@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Today's Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./weather.css">
+</head>
+
+<body>
+    <header >
+        <div class="container text-center">
+            <!-- creating header title-->
+            <h1> Today's Weather Forecast</h1>
+            <a  href="index.html">Go Back </a>
+        </div>
+    </header>
+    <main class="container">
+        <div class="row">
+            <!--button to search for desired city -->
+            <div class="col-10 col-md-2">
+                <form id="searchingfor">
+                    <label class="text-primary">Look for a City:</label>
+                    <input class="form-control my-1 text-primary" type="search" placeholder="''Atlanta''" id="citypush">
+                    <button class="btn btn-outline-primary my-1" type="submit" id="search-button">Enter City</button>
+                </form>
+                 <!--button to clear all previous city searches -->
+                <button class="btn btn-primary my-1" style="width: 100%" type="submit" id="clear-history-button">Clear
+                    History</button>
+                <hr>
+                <div class="findhistory" id="findhistory"></div>
+            </div>
+
+            <div class="col-md-7 col-11">
+                <div class="row todaysweatherforc" id="todaysweatherforc"></div>
+                <div class="firstfive" id="firstfive"></div>
+            </div>
+        </div>
+    </main>
+
+<!--jquery, bootstrap, moment, and ajax sources-->
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="./weather.js"></script>
+</body>
