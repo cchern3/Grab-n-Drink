@@ -57,10 +57,10 @@ function showcasecity() {
     for (var i = 0; i < searchesprev.length; i++) {
         cityList =
             cityList +
-            `<button class="button is-normal is-responsive" type="submit">${searchesprev[i]}</button>`;
+            `<button class="btn btn-secondary search-1" type="submit">${searchesprev[i]}</button>`;
     }
     prevcities.innerHTML = cityList;
-    var searching = document.querySelectorAll(".my-1");
+    var searching = document.querySelectorAll(".search-1");
     for (var i = 0; i < searching.length; i++) {
         searching[i].addEventListener("click", function () {
             weatherforc(this.textContent);
