@@ -26,6 +26,6 @@ Grab n' Drink is a search engine for anyone who is looking for local breweries a
     - Openweathermap
 - Local Storage 
 
-## Collaboratos
+## Collaborators
 Calvin Chern
 Sebastian Abreu
