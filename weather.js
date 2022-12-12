@@ -6,14 +6,14 @@ var weathertoday = document.querySelector("#todayweather");
 var dayforec = document.querySelector("#dayforec");
 var searchesprev = [];
 
-//function for weather dashboard display
+//display for weather
 
 function dashboard(event) {
     event.preventDefault();
     var cities = selectcity.value;
     weatherforc(cities);
 }
-//acquiring api of openweathermap for the cities and forecast data
+//gathering data from api
 function weatherforc(cityName) {
     var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=cf52bda9505d69567000a24e4d4a1ffb&units=imperial`;
     fetch(url)
@@ -30,12 +30,12 @@ function weatherforc(cityName) {
                 .then(function (forthedata) {
                     if (searchesprev.includes(nowData.name) === false) {
                         searchesprev.push(nowData.name);
-                        //storing city searches
+                        //storage for search
                         localStorage.setItem("city", JSON.stringify(searchesprev));
                     }
                     citydisplay();
                     console.log(forthedata);
-                    //making list of temperature, speed, and humitdity and dates accordingly
+                    //temperature and humidity data implemented
                     weathertoday.innerHTML = 
                     `<ul>
         <li class="title ">${nowData.name}: <span> ${moment(nowData.dt,"X").format(" MM/DD/YYYY")} </span></li>
@@ -48,7 +48,7 @@ function weatherforc(cityName) {
                 });
         });
 }
-//creating access of deployment from previous searches of cities 
+//deploying previous searches 
 function citydisplay() {
     if (localStorage.getItem("city")) {
         searchesprev = JSON.parse(localStorage.getItem("city"));
@@ -71,7 +71,7 @@ citydisplay();
 
 search1.addEventListener("submit", dashboard); 
 
-//making function and button to clear the history of previous searches
+//clearing previous searches
 function clearingthehist() {
     localStorage.clear();
     prevcities.innerHTML = "";

@@ -9,7 +9,7 @@
     list-style: none;
     padding: 15px 25px;
   }
-  
+
   html, body, .background {
     height: 100%;
   }
@@ -48,18 +48,3 @@
   }
  
 
-  /* responsiveness for large and small screens */
-  @media screen and (max-width: 1180px) {
-    .dayforec {
-      flex-direction: column;
-    }
-    }
-  
-  @media screen and (max-width: 576px) {
-    .row.todayweather {
-      margin: 20px 0;
-    }
-    .todaysweatherforc ul {
-      margin: 10px 0;
-    }
-  }
