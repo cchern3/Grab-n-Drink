@@ -10,6 +10,10 @@
     padding: 15px 25px;
   }
   
+  html, body, .background {
+    height: 100%;
+  }
+
   .dayforec {
     display: flex;
     flex-direction: row;

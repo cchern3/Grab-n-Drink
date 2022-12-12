@@ -2,6 +2,10 @@
     background-color:rgb(125, 84, 31);
 }
 
+html, body, .background {
+    height: 100%;
+}
+
 button:hover {
     opacity:5;
   }
