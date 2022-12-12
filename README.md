@@ -12,7 +12,9 @@ Grab n' Drink is a search engine for anyone who is looking for local breweries a
 
 ## Screenshots
 
+<img width="1440" alt="Screen Shot 2022-12-11 at 11 47 44 PM" src="https://user-images.githubusercontent.com/25966179/206965911-4ce8eaa8-2fa3-4959-be06-a7179fccf973.png">
 
+<img width="1440" alt="Screen Shot 2022-12-11 at 11 47 57 PM" src="https://user-images.githubusercontent.com/25966179/206965917-950212c4-6342-4513-834e-57eb98a4d472.png">
 
 ## Technologies Used
 - HTML 
