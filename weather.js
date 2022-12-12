@@ -41,8 +41,8 @@ function weatherforc(cityName) {
         <li class="title ">${nowData.name}: <span> ${moment(nowData.dt,"X").format(" MM/DD/YYYY")} </span></li>
         <li><img src ="http://openweathermap.org/img/wn/${nowData.weather[0].icon}@2x.png" /></li>
         <li>Temp: ${Math.floor(nowData.main.temp) + "&#176F"}</li>
-        <li>Max Temp: ${Math.floor(nowData.main.temp_max) + "&#176F"}</li>
-        <li>Min Temp: ${Math.floor(nowData.main.temp_min) + "&#176F"}</li>
+        <li>High: ${Math.floor(nowData.main.temp_max) + "&#176F"}</li>
+        <li>Low: ${Math.floor(nowData.main.temp_min) + "&#176F"}</li>
         <li>Humidity: ${nowData.main.humidity}</li>
                      </ul>`;
                 });
