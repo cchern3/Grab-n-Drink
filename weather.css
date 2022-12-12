@@ -4,7 +4,7 @@
   }
   
   .day {
-    background: #070a63;
+    background:orange;
     color: rgb(204, 204, 204);
     list-style: none;
     padding: 15px 25px;
@@ -16,7 +16,20 @@
     justify-content: space-between;
   }
   
+  .lookForCity{
+    text-align: center;
+    color: rgb(129, 179, 255);
+    background-color: rgba(0,0,0, 0.4);
+    padding: 5%;
+    margin: 1%;
+    backdrop-filter: blur(5px);
+    border: 5px solid rgb(129, 179, 255);
+    font-weight: bold;
+    border-radius: 20px;
+    }
+
   .todayweather ul {
+    text-align: center;
     list-style: none;
     border: 2px solid;
     padding: 20px;
@@ -24,7 +37,7 @@
   }
   
   header {
-    background: #1a2c7a;
+    background: #010307;
     color: rgb(238, 238, 238);
     padding: 10px;
     margin-bottom: 10px;

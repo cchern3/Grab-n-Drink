@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <header >
+    <body background="./weather-back.jpg"></body>
+    <header>
         <div class="column is-mobile has-text-centered">
             <!-- creating header title-->
             <h1 class="title is-3 has-text-warning"> Today's Weather Forecast</h1>
@@ -21,7 +22,8 @@
     <main class="container ">
         <div >
             <!--button to search for desired city -->
-            <div class="columns is-size-2 is-mobile is-centered">
+            <div class="columns is-size-2  ">
+                <div class="lookForCity">
                 <form id="forthesearch">
                     <label class="column ">Look for a City:</label>
                     <input class="column " type="search" style="width:100%" placeholder="''Atlanta''" id="pushingcity">
@@ -30,16 +32,16 @@
                     <button class="button is-small is-primary is-rounded" style="width:100%" type="submit" id="clearbtn">Clear
                         History</button>
                         <div class="historyfinder" id="historyfinder"></div>
-                </form>
+                </form></div>
                 <br>
                  <!--button to clear all previous city searches -->
-                
+                 <div class="column">
+                    <div class=" todayweather" id="todayweather"></div>
+                    <div class="dayforec" id="dayforec"></div>
+                </div>
             </div>
 
-            <div class=" is-centered">
-                <div class="column todayweather" id="todayweather"></div>
-                <div class="dayforec" id="dayforec"></div>
-            </div>
+
         </div>
     </main>
 
