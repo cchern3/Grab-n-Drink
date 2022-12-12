@@ -21,23 +21,24 @@
     <main class="container ">
         <div >
             <!--button to search for desired city -->
-            <div class="is-size-2 is-mobile">
-                <form id="searchingfor">
+            <div class="columns is-size-2 is-mobile is-centered">
+                <form id="forthesearch">
                     <label class="column ">Look for a City:</label>
-                    <input class="column " type="search" placeholder="''Atlanta''" id="citypush">
-                    <button class="column is-small is-rounded" type="submit" id="search-button">Enter City</button>
+                    <input class="column " type="search" style="width:100%" placeholder="''Atlanta''" id="pushingcity">
+                    <button class="button is-small is-rounded" style="width:100%" type="submit" id="search-button">Enter City</button>
+                    <br>
+                    <button class="button is-small is-primary is-rounded" style="width:100%" type="submit" id="clearbtn">Clear
+                        History</button>
+                        <div class="historyfinder" id="historyfinder"></div>
                 </form>
                 <br>
                  <!--button to clear all previous city searches -->
-                <button class="button is-small is-primary is-rounded" style="width: 100%" type="submit" id="clear-history-button">Clear
-                    History</button>
-            
-                <div class="findhistory" id="findhistory"></div>
+                
             </div>
 
-            <div class="col-md-7 col-11">
-                <div class="row todaysweatherforc" id="todaysweatherforc"></div>
-                <div class="firstfive" id="firstfive"></div>
+            <div class=" is-centered">
+                <div class="column todayweather" id="todayweather"></div>
+                <div class="dayforec" id="dayforec"></div>
             </div>
         </div>
     </main>

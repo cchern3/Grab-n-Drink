@@ -1,9 +1,9 @@
-var selectcity = document.querySelector("#citypush");
-var search1 = document.querySelector("#searchingfor");
-var btnclear = document.querySelector("#clear-history-button");
-var prevcities = document.querySelector("#findhistory");
-var weathertoday = document.querySelector("#todaysweatherforc");
-var dayforec = document.querySelector("#firstfive");
+var selectcity = document.querySelector("#pushingcity");
+var search1 = document.querySelector("#forthesearch");
+var btnclear = document.querySelector("#clearbtn");
+var prevcities = document.querySelector("#historyfinder");
+var weathertoday = document.querySelector("#todayweather");
+var dayforec = document.querySelector("#dayforec");
 var searchesprev = [];
 
 //function for weather dashboard display
@@ -22,19 +22,19 @@ function weatherforc(cityName) {
         })
         .then(function (nowData) {
             console.log(nowData);
-            var moreforecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${nowData.coord.lat}&lon=${nowData.coord.lon}&appid=cf52bda9505d69567000a24e4d4a1ffb&units=imperial`;
-            fetch(moreforecast)
+            var forecdata = `https://api.openweathermap.org/data/2.5/forecast?lat=${nowData.coord.lat}&lon=${nowData.coord.lon}&appid=cf52bda9505d69567000a24e4d4a1ffb&units=imperial`;
+            fetch(forecdata)
                 .then(function (response) {
                     return response.json();
                 })
-                .then(function (allfive) {
+                .then(function (forthedata) {
                     if (searchesprev.includes(nowData.name) === false) {
                         searchesprev.push(nowData.name);
                         //storing city searches
                         localStorage.setItem("city", JSON.stringify(searchesprev));
                     }
-                    showcasecity();
-                    console.log(allfive);
+                    citydisplay();
+                    console.log(forthedata);
                     //making list of temperature, speed, and humitdity and dates accordingly
                     weathertoday.innerHTML = 
                     `<ul>
@@ -49,17 +49,17 @@ function weatherforc(cityName) {
         });
 }
 //creating access of deployment from previous searches of cities 
-function showcasecity() {
+function citydisplay() {
     if (localStorage.getItem("city")) {
         searchesprev = JSON.parse(localStorage.getItem("city"));
     }
-    var cityList = "";
+    var citiescont = "";
     for (var i = 0; i < searchesprev.length; i++) {
-        cityList =
-            cityList +
-            `<button class="btn btn-secondary search-1" type="submit">${searchesprev[i]}</button>`;
+        citiescont =
+            citiescont +
+            `<button class="button column search-1" type="submit">${searchesprev[i]}</button>`;
     }
-    prevcities.innerHTML = cityList;
+    prevcities.innerHTML = citiescont;
     var searching = document.querySelectorAll(".search-1");
     for (var i = 0; i < searching.length; i++) {
         searching[i].addEventListener("click", function () {
@@ -67,7 +67,7 @@ function showcasecity() {
         });
     }
 }
-showcasecity();
+citydisplay();
 
 search1.addEventListener("submit", dashboard); 
 

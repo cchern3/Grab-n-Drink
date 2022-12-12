@@ -1,4 +1,4 @@
-.findhistory {
+.historyfinder {
     display: flex;
     flex-direction: column;
   }
@@ -10,15 +10,13 @@
     padding: 15px 25px;
   }
   
-  .firstfive {
+  .dayforec {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
   
-  
-  
-  .todaysweatherforc ul {
+  .todayweather ul {
     list-style: none;
     border: 2px solid;
     padding: 20px;
@@ -35,13 +33,13 @@
 
   /* responsiveness for large and small screens */
   @media screen and (max-width: 1180px) {
-    .firstfive {
+    .dayforec {
       flex-direction: column;
     }
     }
   
   @media screen and (max-width: 576px) {
-    .row.todaysweatherforc {
+    .row.todayweather {
       margin: 20px 0;
     }
     .todaysweatherforc ul {
