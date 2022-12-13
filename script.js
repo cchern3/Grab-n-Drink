@@ -93,10 +93,10 @@ var allbrews = function (data, elements) {
         <div class="card-content">
         <p class="title is-4">${name}</p>
             <div class="content">
-                <h6>Brewery Type: ${brewery_type}</h6>
-                <h6>${street}</h6>
-                <h6>${city}, ${state}</h6>
-                <h6>Postal Code: ${postal_code}</h6>
+                <h6>Brewery Type: ${brewery_type ||''}</h6>
+                <h6>${street ||''}</h6>
+                <h6>${city}, ${state }</h6>
+                <h6>Postal Code: ${postal_code ||''}</h6>
                 <h6>Phone: ${phone}</h6>
                 <h6>Website: ${website_url ||''}</h6>
                 
