@@ -11,10 +11,15 @@ var searchesprev = [];
 function dashboard(event) {
     event.preventDefault();
     var cities = selectcity.value;
-    weatherforc(cities);
+
+    if (cities !== '') {
+        weatherforc(cities);
+    }
 }
+
 //gathering data from api
 function weatherforc(cityName) {
+    console.log(cityName);
     var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=cf52bda9505d69567000a24e4d4a1ffb&units=imperial`;
     fetch(url)
         .then(function (response) {

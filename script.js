@@ -71,8 +71,9 @@ var allbrews = function (data, elements) {
         // format data
         var { name, brewery_type, street, city, state, phone, postal_code, website_url } = data[i];
 
+
     // Phone number formating, use 'j' because 'i' was already used above
-    const arrayforphone = phone.split('');
+    const arrayforphone = (phone|| '').split('');
 
     var phonenumberformat = [];
     for(var j = 0; j < arrayforphone.length; j++){
@@ -97,7 +98,7 @@ var allbrews = function (data, elements) {
                 <h6>${city}, ${state}</h6>
                 <h6>Postal Code: ${postal_code}</h6>
                 <h6>Phone: ${phone}</h6>
-                <h6>Website: ${website_url}</h6>
+                <h6>Website: ${website_url ||''}</h6>
                 
             </div>
         </div>
